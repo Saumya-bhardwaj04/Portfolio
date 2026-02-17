@@ -5,8 +5,10 @@ import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const emailAddress = "samisharma000@gmail.com";
+  const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "samisharma000@gmail.com", href: "mailto:samisharma000@gmail.com" },
+    { icon: Mail, label: "Email", value: emailAddress, href: gmailComposeHref },
     { icon: Phone, label: "Phone", value: "+91 9717831874", href: "tel:+919717831874" },
     { icon: MapPin, label: "Location", value: "New Delhi, India", href: "#" }
   ];
@@ -43,6 +45,8 @@ const Contact = () => {
               {contactInfo.map((item, index) => <motion.a
     key={item.label}
     href={item.href}
+    target={item.href.startsWith("http") ? "_blank" : void 0}
+    rel={item.href.startsWith("http") ? "noopener noreferrer" : void 0}
     initial={{ opacity: 0, x: -20 }}
     animate={isInView ? { opacity: 1, x: 0 } : {}}
     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
@@ -98,7 +102,9 @@ const Contact = () => {
                   Let's build something amazing!
                 </p>
                 <a
-    href="mailto:samisharma000@gmail.com"
+    href={gmailComposeHref}
+    target="_blank"
+    rel="noopener noreferrer"
     className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 glow-effect"
   >
                   <Mail className="w-5 h-5" />

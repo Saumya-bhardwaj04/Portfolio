@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, Copy } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 const Footer = () => {
   const emailAddress = "samisharma000@gmail.com";
+  const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
   const handleCopyEmail = async () => {
     try {
       await navigator.clipboard.writeText(emailAddress);
@@ -47,7 +48,9 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-    href="mailto:samisharma000@gmail.com"
+    href={gmailComposeHref}
+    target="_blank"
+    rel="noopener noreferrer"
     className="text-muted-foreground hover:text-primary transition-colors"
   >
               <Mail className="w-5 h-5" />

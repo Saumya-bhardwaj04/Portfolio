@@ -4,6 +4,7 @@ import { useTypingEffect } from "@/hooks/useTypingEffect";
 import { toast } from "@/hooks/use-toast";
 const Hero = () => {
   const emailAddress = "samisharma000@gmail.com";
+  const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
   const { displayText } = useTypingEffect({
     words: ["Full Stack Developer", "MERN Stack Expert", "AI/ML Enthusiast", "Problem Solver"],
     typingSpeed: 80,
@@ -112,12 +113,12 @@ const Hero = () => {
         {[
     { icon: Github, href: "https://github.com/saumya-bhardwaj04", label: "GitHub", isExternal: true },
     { icon: Linkedin, href: "https://linkedin.com/in/saumya-bhardwaj04", label: "LinkedIn", isExternal: true },
-    { icon: Mail, href: `mailto:${emailAddress}`, label: "Email", isExternal: false }
+    { icon: Mail, href: gmailComposeHref, label: "Email", isExternal: true }
   ].map((social, index) => <motion.a
     key={social.label}
     href={social.href}
-    target={social.href.startsWith("mailto") ? void 0 : "_blank"}
-    rel={social.href.startsWith("mailto") ? void 0 : "noopener noreferrer"}
+    target={social.isExternal ? "_blank" : void 0}
+    rel={social.isExternal ? "noopener noreferrer" : void 0}
     onClick={() => {
       if (social.isExternal) {
         handleExternalOpen(social.label);

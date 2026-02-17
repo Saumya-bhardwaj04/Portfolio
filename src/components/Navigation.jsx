@@ -247,7 +247,9 @@ const Navigation = () => {
                     LinkedIn
                   </a>
                   <a
-    href="mailto:samisharma000@gmail.com"
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=samisharma000%40gmail.com"
+    target="_blank"
+    rel="noopener noreferrer"
     className="text-muted-foreground hover:text-primary transition-colors text-sm"
   >
                     Email
