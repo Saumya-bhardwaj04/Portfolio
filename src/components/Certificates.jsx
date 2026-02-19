@@ -5,6 +5,26 @@ import { Award, Download, Eye } from "lucide-react";
 const baseUrl = import.meta.env.BASE_URL || "/";
 const certificates = [
   {
+    id: 6,
+    title: "Introduction to Generative AI Studio",
+    issuer: "Google Cloud (SkillUp by Simplilearn)",
+    date: "2026",
+    description: "Completed an online course covering the basics of Generative AI Studio and practical workflow concepts.",
+    downloadUrl: `${baseUrl}certificates/Genai%20Studio%20Certificate.pdf`,
+    viewUrl: `${baseUrl}certificates/Genai%20Studio%20Certificate.pdf`,
+    color: "accent"
+  },
+  {
+    id: 7,
+    title: "Generative AI for Beginners",
+    issuer: "Simplilearn SkillUp",
+    date: "2026",
+    description: "Completed an online course covering Generative AI fundamentals and beginner-friendly concepts.",
+    downloadUrl: `${baseUrl}certificates/Generative%20AI%20for%20Beginners.pdf`,
+    viewUrl: `${baseUrl}certificates/Generative%20AI%20for%20Beginners.pdf`,
+    color: "primary"
+  },
+  {
     id: 1,
     title: "Artificial Intelligence",
     issuer: "CodeSoft",

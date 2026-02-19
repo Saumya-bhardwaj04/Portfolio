@@ -2,6 +2,59 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Code2, Server, Wrench, Sparkles, Database } from "lucide-react";
+import {
+  SiReact,
+  SiRedux,
+  SiJavascript,
+  SiTailwindcss,
+  SiAxios,
+  SiNodedotjs,
+  SiExpress,
+  SiPostman,
+  SiJsonwebtokens,
+  SiSocketdotio,
+  SiMongodb,
+  SiMysql,
+  SiCloudinary,
+  SiFirebase,
+  SiGithub,
+  SiPython,
+  SiVercel,
+  SiRender,
+  SiGooglechrome
+} from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+
+const techIcons = {
+  "React.js": SiReact,
+  "Redux Toolkit": SiRedux,
+  "JavaScript (ES6+)": SiJavascript,
+  "Tailwind CSS": SiTailwindcss,
+  Axios: SiAxios,
+  "PWA/Service Worker": SiGooglechrome,
+  "Node.js": SiNodedotjs,
+  "Express.js": SiExpress,
+  "REST APIs": SiPostman,
+  "JWT Authentication": SiJsonwebtokens,
+  Bcrypt: Wrench,
+  "MVC Architecture": Server,
+  WebSocket: SiSocketdotio,
+  MongoDB: SiMongodb,
+  MySQL: SiMysql,
+  Cloudinary: SiCloudinary,
+  "MongoDB Atlas": SiMongodb,
+  "Firebase Cloud Messaging (FCM)": SiFirebase,
+  "Generative AI(Applied)": Sparkles,
+  "AI-Assisted Content Systems": Sparkles,
+  "System Design(Basics)": Database,
+  Python: SiPython,
+  "Git/GitHub": SiGithub,
+  Postman: SiPostman,
+  Vercel: SiVercel,
+  Render: SiRender,
+  "Chrome DevTools": SiGooglechrome,
+  "VS Code": VscCode
+};
 const skillCategories = [
   {
     title: "Frontend",
@@ -72,6 +125,8 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [activeCategory, setActiveCategory] = useState(0);
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const allSkills = skillCategories.flatMap((cat) => cat.skills);
+  const uniqueSkills = Array.from(new Map(allSkills.map((s) => [s.name, s])).values());
   return <section id="skills" className="section-padding relative" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
@@ -197,19 +252,23 @@ const Skills = () => {
     className="mt-12 text-center"
   >
           <p className="text-sm text-muted-foreground mb-6">All Technologies</p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {skillCategories.flatMap((cat) => cat.skills).map((skill, index) => <motion.span
-    key={skill.name}
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-    transition={{ duration: 0.3, delay: 0.5 + index * 0.02 }}
-    whileHover={{ scale: 1.1, y: -2 }}
-    className="px-4 py-2 rounded-full text-sm font-medium bg-secondary text-foreground 
-                         border border-border hover:border-primary hover:text-primary 
-                         transition-all duration-300 cursor-default"
-  >
-                {skill.name}
-              </motion.span>)}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            {uniqueSkills.map((skill, index) => {
+      const Icon = techIcons[skill.name] ?? Code2;
+      return <motion.div
+        key={skill.name}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.3, delay: 0.5 + index * 0.02 }}
+        whileHover={{ scale: 1.03, y: -2 }}
+        className="glass-card rounded-xl p-3 border border-border hover:border-primary/50 transition-all duration-300"
+      >
+                    <div className="flex flex-col items-center justify-center gap-3">
+                      <Icon size={28} className="text-primary" />
+                      <span className="text-xs font-medium text-foreground text-center leading-tight">{skill.name}</span>
+                    </div>
+                  </motion.div>;
+    })}
           </div>
         </motion.div>
       </div>

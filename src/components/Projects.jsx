@@ -41,6 +41,116 @@ const projects = [
     stars: 8,
     githubUrl: "https://github.com/Saumya-bhardwaj04/E-commerceProject",
     liveUrl: "https://e-commerce-project-nu-indol.vercel.app/"
+  },
+  {
+    title: "Weather Prediction App",
+    description: "Built a weather app that fetches real-time conditions for any city and presents results in a clean, responsive UI with helpful error states.",
+    tech: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Weather API",
+      "Fetch API",
+      "Responsive Design"
+    ],
+    features: [
+      "Search weather by city name",
+      "Displays temperature, humidity, and wind details",
+      "Weather condition icons for quick context",
+      "Handles invalid city / API errors gracefully",
+      "Mobile-friendly responsive layout"
+    ],
+    stars: 6,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Weather-Prediction-app",
+    liveUrl: "https://saumya-bhardwaj04.github.io/Weather-Prediction-app/"
+  },
+  {
+    title: "Image Finder",
+    description: "Created an image search experience that pulls results from an external API and displays them in a fast, responsive grid for easy browsing.",
+    tech: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "REST API",
+      "Async/Await",
+      "Responsive UI"
+    ],
+    features: [
+      "Keyword-based image search",
+      "Responsive grid layout for results",
+      "Quick access to full-size images",
+      "Loading state for better UX",
+      "Basic input validation for empty searches"
+    ],
+    stars: 5,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Image-finder",
+    liveUrl: "https://saumya-bhardwaj04.github.io/Image-finder/"
+  },
+  {
+    title: "GitHub Profile Viewer",
+    description: "Built a GitHub profile lookup tool that fetches user data via the GitHub API and presents profile details and repositories in a simple interface.",
+    tech: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "GitHub API",
+      "Fetch API",
+      "Responsive Design"
+    ],
+    features: [
+      "Search GitHub users by username",
+      "Displays profile info (avatar, bio, followers)",
+      "Shows public repositories list",
+      "Clickable links to GitHub profile and repos",
+      "Handles not-found users and API errors"
+    ],
+    stars: 7,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Github-profile-viewer",
+    liveUrl: "https://saumya-bhardwaj04.github.io/Github-profile-viewer/"
+  },
+  {
+    title: "Note App",
+    description: "Developed a lightweight note-taking app with full CRUD support and persistence so notes remain available across sessions.",
+    tech: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "LocalStorage",
+      "DOM Manipulation",
+      "Responsive UI"
+    ],
+    features: [
+      "Create, edit, and delete notes",
+      "Notes persist using browser LocalStorage",
+      "Quick search/filter to find notes",
+      "Clean UI optimized for daily use",
+      "Works smoothly on mobile and desktop"
+    ],
+    stars: 4,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Note-App",
+    liveUrl: "https://saumya-bhardwaj04.github.io/Note-App/"
+  },
+  {
+    title: "Random Password Generator",
+    description: "Created a secure password generator that produces strong random passwords with user-controlled rules and one-click copy.",
+    tech: [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Clipboard API",
+      "Form Validation",
+      "Responsive Design"
+    ],
+    features: [
+      "Generate passwords with custom length",
+      "Include/exclude uppercase, numbers, and symbols",
+      "One-click copy to clipboard",
+      "Prevents weak configurations (e.g., empty rules)",
+      "Simple, clean UI for fast usage"
+    ],
+    stars: 9,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Random-password-generator",
+    liveUrl: "https://saumya-bhardwaj04.github.io/Random-password-generator/"
   }
 ];
 const Projects = () => {
