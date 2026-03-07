@@ -25,255 +25,158 @@ import {
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 
-const techIcons = {
-  "React.js": SiReact,
-  "Redux Toolkit": SiRedux,
-  "JavaScript (ES6+)": SiJavascript,
-  "Tailwind CSS": SiTailwindcss,
-  Axios: SiAxios,
-  "PWA/Service Worker": SiGooglechrome,
-  "Node.js": SiNodedotjs,
-  "Express.js": SiExpress,
-  "REST APIs": SiPostman,
-  "JWT Authentication": SiJsonwebtokens,
-  Bcrypt: Wrench,
-  "MVC Architecture": Server,
-  WebSocket: SiSocketdotio,
-  MongoDB: SiMongodb,
-  MySQL: SiMysql,
-  Cloudinary: SiCloudinary,
-  "MongoDB Atlas": SiMongodb,
-  "Firebase Cloud Messaging (FCM)": SiFirebase,
-  "Generative AI(Applied)": Sparkles,
-  "AI-Assisted Content Systems": Sparkles,
-  "System Design(Basics)": Database,
-  Python: SiPython,
-  "Git/GitHub": SiGithub,
-  Postman: SiPostman,
-  Vercel: SiVercel,
-  Render: SiRender,
-  "Chrome DevTools": SiGooglechrome,
-  "VS Code": VscCode
-};
-const skillCategories = [
-  {
-    title: "Frontend",
-    icon: Code2,
-    color: "primary",
-    skills: [
-      { name: "React.js", level: 90 },
-      { name: "Redux Toolkit", level: 85 },
-      { name: "JavaScript (ES6+)", level: 88 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "Axios", level: 84 },
-      { name: "PWA/Service Worker", level: 78 }
-    ]
-  },
-  {
-    title: "Backend",
-    icon: Server,
-    color: "accent",
-    skills: [
-      { name: "Node.js", level: 85 },
-      { name: "Express.js", level: 86 },
-      { name: "REST APIs", level: 88 },
-      { name: "JWT Authentication", level: 84 },
-      { name: "Bcrypt", level: 80 },
-      { name: "MVC Architecture", level: 82 },
-      { name: "WebSocket", level: 78 }
-    ]
-  },
-  {
-    title: "Database & Cloud",
-    icon: Database,
-    color: "primary",
-    skills: [
-      { name: "MongoDB", level: 84 },
-      { name: "MySQL", level: 80 },
-      { name: "Cloudinary", level: 78 },
-      { name: "MongoDB Atlas", level: 76 },
-      { name: "Firebase Cloud Messaging (FCM)", level: 72 }
-    ]
-  },
-  {
-    title: "AI & Architecture",
-    icon: Sparkles,
-    color: "accent",
-    skills: [
-      { name: "Generative AI(Applied)", level: 20 },
-      { name: "AI-Assisted Content Systems", level: 76 },
-      { name: "System Design(Basics)", level: 20 },
-      { name: "Python", level: 80 },
-    ]
-  },
-  {
-    title: "Tools & Platforms",
-    icon: Wrench,
-    color: "primary",
-    skills: [
-      { name: "Git/GitHub", level: 90 },
-      { name: "Postman", level: 86 },
-      { name: "Vercel", level: 82 },
-      { name: "Render", level: 80 },
-      { name: "Chrome DevTools", level: 88 },
-      { name: "VS Code", level: 90 }
-    ]
-  }
+const technologies = [
+  { name: "React.js", icon: SiReact, color: "#61DAFB" },
+  { name: "Redux Toolkit", icon: SiRedux, color: "#764ABC" },
+  { name: "JavaScript (ES6+)", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Axios", icon: SiAxios, color: "#5A29E4" },
+  { name: "PWA/Service Worker", icon: SiGooglechrome, color: "#4285F4" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Express.js", icon: SiExpress, color: "#000000" },
+  { name: "REST APIs", icon: SiPostman, color: "#FF6C37" },
+  { name: "JWT Authentication", icon: SiJsonwebtokens, color: "#000000" },
+  { name: "Bcrypt", icon: Wrench, color: "#8A2BE2" },
+  { name: "MVC Architecture", icon: Server, color: "#3178C6" },
+  { name: "WebSocket", icon: SiSocketdotio, color: "#010101" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "Cloudinary", icon: SiCloudinary, color: "#3448C5" },
+  { name: "MongoDB Atlas", icon: SiMongodb, color: "#47A248" },
+  { name: "Firebase Cloud Messaging", icon: SiFirebase, color: "#FFCA28" },
+  { name: "Generative AI", icon: Sparkles, color: "#FF00FF" },
+  { name: "AI-Assisted Content", icon: Sparkles, color: "#9333EA" },
+  { name: "System Design", icon: Database, color: "#0EA5E9" },
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "Git/GitHub", icon: SiGithub, color: "#181717" },
+  { name: "Postman", icon: SiPostman, color: "#FF6C37" },
 ];
+
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeCategory, setActiveCategory] = useState(0);
-  const [hoveredSkill, setHoveredSkill] = useState(null);
-  const allSkills = skillCategories.flatMap((cat) => cat.skills);
-  const uniqueSkills = Array.from(new Map(allSkills.map((s) => [s.name, s])).values());
-  return <section id="skills" className="section-padding relative" ref={ref}>
+  const [isPaused, setIsPaused] = useState(false);
+
+  return (
+    <section id="skills" className="section-padding relative" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6 }}
-    className="mb-16"
-  >
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <p className="mono-text text-primary text-sm mb-2 tracking-wider">02.</p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             Skills & <span className="text-gradient">Technologies</span>
           </h2>
         </motion.div>
 
-        {
-    /* Category Tabs */
-  }
-        <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: 0.1 }}
-    className="flex flex-wrap justify-center gap-4 mb-12"
-  >
-          {skillCategories.map((category, index) => {
-    const Icon = category.icon;
-    return <motion.button
-      key={category.title}
-      onClick={() => setActiveCategory(index)}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={`flex items-center gap-3 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${activeCategory === index ? category.color === "primary" ? "bg-primary text-primary-foreground glow-effect" : "bg-accent text-accent-foreground glow-effect" : "glass-card hover:border-primary/50"}`}
-    >
-                <Icon className="w-5 h-5" />
-                {category.title}
-              </motion.button>;
-  })}
-        </motion.div>
-
-        {
-    /* Skills Grid */
-  }
-        <div className="grid md:grid-cols-3 gap-8">
-          {skillCategories.map((category, categoryIndex) => <motion.div
-    key={category.title}
-    initial={{ opacity: 0, y: 40 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-    className={`glass-card rounded-2xl p-8 relative overflow-hidden transition-all duration-500 ${activeCategory === categoryIndex ? "ring-2 ring-primary/50 glow-effect" : ""}`}
-  >
-              {
-    /* Background gradient */
-  }
-              <div
-    className={`absolute inset-0 opacity-5 ${category.color === "primary" ? "bg-gradient-to-br from-primary to-transparent" : "bg-gradient-to-br from-accent to-transparent"}`}
-  />
-
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-6">
-                  <div
-    className={`p-3 rounded-xl ${category.color === "primary" ? "bg-primary/10" : "bg-accent/10"}`}
-  >
-                    <category.icon
-    className={`w-6 h-6 ${category.color === "primary" ? "text-primary" : "text-accent"}`}
-  />
-                  </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
-                </div>
-
-                <div className="space-y-4">
-                  {category.skills.map((skill, skillIndex) => <motion.div
-    key={skill.name}
-    initial={{ opacity: 0, x: -20 }}
-    animate={isInView ? { opacity: 1, x: 0 } : {}}
-    transition={{ duration: 0.4, delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
-    onMouseEnter={() => setHoveredSkill(skill.name)}
-    onMouseLeave={() => setHoveredSkill(null)}
-    className="group"
-  >
-                      <div className="flex justify-between items-center mb-2">
-                        <span
-    className={`text-sm font-medium transition-colors ${hoveredSkill === skill.name ? category.color === "primary" ? "text-primary" : "text-accent" : "text-foreground"}`}
-  >
-                          {skill.name}
-                        </span>
-                        <span
-    className={`mono-text text-xs transition-opacity ${hoveredSkill === skill.name ? "opacity-100" : "opacity-0"} ${category.color === "primary" ? "text-primary" : "text-accent"}`}
-  >
-                          {skill.level}%
-                        </span>
-                      </div>
-                      <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                        <motion.div
-    initial={{ width: 0 }}
-    animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-    transition={{ duration: 1, delay: categoryIndex * 0.1 + skillIndex * 0.05 + 0.3 }}
-    className={`h-full rounded-full ${category.color === "primary" ? "bg-gradient-to-r from-primary to-primary/60" : "bg-gradient-to-r from-accent to-accent/60"}`}
-  />
-                      </div>
-                    </motion.div>)}
-                </div>
-              </div>
-
-              {
-    /* Floating sparkle on hover */
-  }
-              <motion.div
-    className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
-    animate={{ rotate: [0, 360] }}
-    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-  >
-                <Sparkles className="w-4 h-4 text-primary/40" />
-              </motion.div>
-            </motion.div>)}
-        </div>
-
-        {
-    /* Skills Tags Cloud */
-  }
-        <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    animate={isInView ? { opacity: 1, y: 0 } : {}}
-    transition={{ duration: 0.6, delay: 0.4 }}
-    className="mt-12 text-center"
-  >
-          <p className="text-sm text-muted-foreground mb-6">All Technologies</p>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-            {uniqueSkills.map((skill, index) => {
-      const Icon = techIcons[skill.name] ?? Code2;
-      return <motion.div
-        key={skill.name}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-        transition={{ duration: 0.3, delay: 0.5 + index * 0.02 }}
-        whileHover={{ scale: 1.03, y: -2 }}
-        className="glass-card rounded-xl p-3 border border-border hover:border-primary/50 transition-all duration-300"
-      >
-                    <div className="flex flex-col items-center justify-center gap-3">
-                      <Icon size={28} className="text-primary" />
-                      <span className="text-xs font-medium text-foreground text-center leading-tight">{skill.name}</span>
+        {/* Technologies Grid with Scroll Animation */}
+        <div className="relative h-[700px] overflow-hidden rounded-2xl">
+          {/* Top Gradient */}
+          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          
+          {/* Bottom Gradient */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          
+          {/* Scrolling Container */}
+          <motion.div
+            className="grid grid-cols-6 gap-6 px-4"
+            animate={isInView && !isPaused ? { 
+              y: ["0%", "-100%"] 
+            } : {}}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+              repeatType: "loop"
+            }}
+            onHoverStart={() => setIsPaused(true)}
+            onHoverEnd={() => setIsPaused(false)}
+          >
+            {/* Triple technologies for seamless loop */}
+            {[...technologies, ...technologies, ...technologies].map((tech, index) => {
+              const Icon = tech.icon;
+              return (
+                <motion.div
+                  key={`${tech.name}-${index}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: (index % 24) * 0.03 }}
+                  whileHover={{ 
+                    scale: 1.08, 
+                    y: -8,
+                    rotateY: 5,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="relative group cursor-pointer aspect-square"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    perspective: "1000px"
+                  }}
+                >
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Main card */}
+                  <div className="relative glass-card rounded-2xl p-4 border-2 border-border/50 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 bg-gradient-to-br from-card/80 via-card to-card/80 backdrop-blur-xl h-full w-full">
+                    {/* Background pattern */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent" 
+                           style={{
+                             backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
+                             backgroundSize: '20px 20px'
+                           }}
+                      />
                     </div>
-                  </motion.div>;
-    })}
-          </div>
-        </motion.div>
+                    
+                    <div className="relative flex flex-col items-center justify-center gap-3 h-full">
+                      {/* Icon container with gradient background */}
+                      <div className="relative p-3 rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 group-hover:from-primary/20 group-hover:via-accent/10 group-hover:to-primary/20 transition-all duration-300">
+                        <Icon 
+                          size={32} 
+                          className="text-primary group-hover:scale-110 transition-transform duration-300" 
+                          style={{ 
+                            filter: 'drop-shadow(0 0 8px rgba(var(--primary), 0.3))'
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Technology name */}
+                      <span className="text-xs font-semibold text-foreground text-center leading-tight group-hover:text-primary transition-colors duration-300 px-1">
+                        {tech.name}
+                      </span>
+                      
+                      {/* Animated underline on hover */}
+                      <motion.div 
+                        className="h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"
+                        initial={{ width: 0 }}
+                        whileHover={{ width: "80%" }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+        
+        {/* Hover instruction */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="text-center text-sm text-muted-foreground mt-6 mono-text"
+        >
+          All technologies
+        </motion.p>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 var Skills_default = Skills;
 export {
   Skills_default as default
