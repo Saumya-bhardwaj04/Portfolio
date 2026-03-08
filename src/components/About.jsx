@@ -45,7 +45,6 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Animated background elements */}
       <motion.div
         className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"
         animate={{
@@ -98,7 +97,6 @@ const About = () => {
             animate={isInView ? "visible" : "hidden"}
             className="space-y-6 relative"
           >
-            {/* Decorative code icon */}
             <motion.div
               className="absolute -left-8 top-0"
               animate={{
@@ -182,7 +180,6 @@ const About = () => {
           </motion.div>
 
           <div className="space-y-6 relative">
-            {/* Decorative rocket icon */}
             <motion.div
               className="absolute -right-8 -top-8 z-0"
               animate={{
@@ -199,7 +196,6 @@ const About = () => {
               <Rocket className="w-16 h-16 text-accent/20" />
             </motion.div>
 
-            {/* Education Cards */}
             <motion.div
               variants={cardVariants}
               initial="hidden"
@@ -215,7 +211,6 @@ const About = () => {
                 perspective: "1000px"
               }}
             >
-              {/* Animated gradient background */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"
                 animate={{
@@ -270,7 +265,7 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Hover shine effect */}
+
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 initial={{ x: "-100%" }}
@@ -295,7 +290,6 @@ const About = () => {
                 perspective: "1000px"
               }}
             >
-              {/* Animated gradient background */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/10"
                 animate={{
@@ -350,7 +344,6 @@ const About = () => {
                 </div>
               </div>
 
-              {/* Hover shine effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 initial={{ x: "-100%" }}

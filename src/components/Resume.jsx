@@ -3,11 +3,14 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { FileText, Download, ExternalLink, Eye } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import useSoundEffects from "@/hooks/useSoundEffects";
 const Resume = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeFile = `${baseUrl}Saumya%20bhardwaj%20resume.pdf`;
+  const resumeVersion = "20260308";
+  const resumeFile = `${baseUrl}Saumya%20bhardwaj%20CV.pdf?v=${resumeVersion}`;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { playClickSound, playDownloadSound } = useSoundEffects();
   return <section id="resume" className="section-padding relative" ref={ref}>
       <div className="max-w-4xl mx-auto">
         <motion.div
@@ -31,16 +34,10 @@ const Resume = () => {
     transition={{ duration: 0.6, delay: 0.2 }}
     className="glass-card rounded-2xl p-8 md:p-12 relative overflow-hidden"
   >
-          {
-    /* Background decoration */
-  }
           <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
           <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
 
           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-            {
-    /* Resume Icon */
-  }
             <motion.div
     initial={{ scale: 0.8, opacity: 0 }}
     animate={isInView ? { scale: 1, opacity: 1 } : {}}
@@ -59,9 +56,6 @@ const Resume = () => {
               </motion.div>
             </motion.div>
 
-            {
-    /* Content */
-  }
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-2xl font-bold mb-3">Professional Resume</h3>
               <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -69,14 +63,12 @@ const Resume = () => {
                 work experience, projects, and achievements. Available in PDF format.
               </p>
 
-              {
-    /* Action Buttons */
-  }
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <motion.a
     href={resumeFile}
-    download="Saumya_Bhardwaj_Resume.pdf"
+    download="Saumya_Bhardwaj_CV.pdf"
     onClick={() => {
+      playDownloadSound();
       toast({
         title: "Downloading resume",
         description: "Your download should begin shortly."
@@ -94,6 +86,7 @@ const Resume = () => {
     href={resumeFile}
     target="_blank"
     rel="noopener noreferrer"
+          onClick={playClickSound}
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
     className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-primary text-primary font-semibold hover:bg-primary/10 transition-all duration-300 group"
@@ -106,14 +99,11 @@ const Resume = () => {
             </div>
           </div>
 
-          {
-    /* Stats */
-  }
-          <motion.div
+              <motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.6, delay: 0.5 }}
-    className="relative z-10 grid grid-cols-3 gap-4 mt-10 pt-8 border-t border-border"
+            className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-8 border-t border-border"
   >
             {[
     { value: "4+", label: "Months Experience" },
@@ -124,7 +114,7 @@ const Resume = () => {
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-    className="text-center"
+    className="text-center py-2 sm:py-0"
   >
                 <p className="text-2xl md:text-3xl font-bold text-gradient">{stat.value}</p>
                 <p className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</p>

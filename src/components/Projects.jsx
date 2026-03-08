@@ -2,6 +2,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, Layers, Star, Eye, Sparkles, Code2, Users, TrendingUp, Clock } from "lucide-react";
+import useSoundEffects from "@/hooks/useSoundEffects";
 const projects = [
   {
     title: "Meloque – AI-Powered Blogging Platform",
@@ -190,6 +191,7 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [clickedLinks, setClickedLinks] = useState({});
+  const { playClickSound, playCtaSound, playHoverSound } = useSoundEffects();
   
   // Counter for total projects
   const projectCount = useCounter(projects.length, 1500, isInView);
@@ -220,7 +222,6 @@ const Projects = () => {
   const filters = ["All", "Full Stack", "Frontend", "JavaScript"];
 
   return <section id="projects" className="section-padding relative overflow-hidden" ref={ref}>
-    {/* Animated background elements */}
     <motion.div
       className="absolute top-10 left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"
       animate={{
@@ -250,7 +251,6 @@ const Projects = () => {
       }}
     />
     
-    {/* Floating code snippets decoration */}
     <motion.div
       className="absolute top-1/4 right-10"
       animate={{
@@ -300,7 +300,6 @@ const Projects = () => {
         </h2>
       </motion.div>
 
-      {/* Project Stats */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -368,7 +367,6 @@ const Projects = () => {
             onMouseLeave={() => setHoveredProject(null)}
             className="glass-card rounded-2xl p-6 md:p-8 group relative overflow-hidden transition-all duration-500 hover:glow-effect"
           >
-          {/* Animated gradient background */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100"
             animate={{
@@ -384,7 +382,6 @@ const Projects = () => {
             }}
           />
 
-          {/* Shine effect on hover */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
             initial={{ x: "-100%", opacity: 0 }}
@@ -395,7 +392,6 @@ const Projects = () => {
             transition={{ duration: 0.8 }}
           />
 
-          {/* Floating particles */}
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
@@ -470,6 +466,8 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleLinkClick(project.title, 'github')}
+                onMouseEnter={playHoverSound}
+                onClickCapture={playClickSound}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:border-primary hover:text-primary transition-all duration-300 text-sm font-medium relative group/btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -493,6 +491,8 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => handleLinkClick(project.title, 'live')}
+                onMouseEnter={playHoverSound}
+                onClickCapture={playCtaSound}
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 text-sm font-medium relative"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

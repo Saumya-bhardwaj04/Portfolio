@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Copy } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import useSoundEffects from "@/hooks/useSoundEffects";
 const Footer = () => {
   const emailAddress = "samisharma000@gmail.com";
   const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
+  const { playClickSound, playCtaSound, playHoverSound } = useSoundEffects();
   const handleCopyEmail = async () => {
     try {
+      playCtaSound();
       await navigator.clipboard.writeText(emailAddress);
       toast({
         title: "Email copied",
@@ -35,6 +38,8 @@ const Footer = () => {
     href="https://github.com/saumya-bhardwaj04"
     target="_blank"
     rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
     className="text-muted-foreground hover:text-primary transition-colors"
   >
               <Github className="w-5 h-5" />
@@ -43,6 +48,8 @@ const Footer = () => {
     href="https://linkedin.com/in/saumya-bhardwaj04"
     target="_blank"
     rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
     className="text-muted-foreground hover:text-primary transition-colors"
   >
               <Linkedin className="w-5 h-5" />
@@ -51,6 +58,8 @@ const Footer = () => {
     href={gmailComposeHref}
     target="_blank"
     rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
     className="text-muted-foreground hover:text-primary transition-colors"
   >
               <Mail className="w-5 h-5" />
@@ -58,6 +67,7 @@ const Footer = () => {
             <button
     type="button"
     onClick={handleCopyEmail}
+              onMouseEnter={playHoverSound}
     className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
     aria-label="Copy email address"
   >

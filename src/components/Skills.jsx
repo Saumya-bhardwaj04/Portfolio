@@ -24,6 +24,7 @@ import {
   SiGooglechrome
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
+import useSoundEffects from "@/hooks/useSoundEffects";
 
 const technologies = [
   { name: "React.js", icon: SiReact, color: "#61DAFB" },
@@ -56,6 +57,7 @@ const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isPaused, setIsPaused] = useState(false);
+  const { playHoverSound, playClickSound } = useSoundEffects();
 
   return (
     <section id="skills" className="section-padding relative" ref={ref}>
@@ -64,25 +66,21 @@ const Skills = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-10 sm:mb-12 md:mb-16"
         >
           <p className="mono-text text-primary text-sm mb-2 tracking-wider">02.</p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
             Skills & <span className="text-gradient">Technologies</span>
           </h2>
         </motion.div>
 
-        {/* Technologies Grid with Scroll Animation */}
-        <div className="relative h-[700px] overflow-hidden rounded-2xl">
-          {/* Top Gradient */}
-          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-background via-background/80 to-transparent z-10 pointer-events-none" />
+        <div className="relative h-[480px] sm:h-[620px] lg:h-[700px] overflow-hidden rounded-xl sm:rounded-2xl">
+          <div className="absolute top-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-b from-background via-background/90 to-transparent z-10 pointer-events-none" />
           
-          {/* Bottom Gradient */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-background via-background/90 to-transparent z-10 pointer-events-none" />
           
-          {/* Scrolling Container */}
           <motion.div
-            className="grid grid-cols-6 gap-6 px-4"
+            className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-4 lg:gap-6 px-2 sm:px-4"
             animate={isInView && !isPaused ? { 
               y: ["0%", "-100%"] 
             } : {}}
@@ -95,7 +93,6 @@ const Skills = () => {
             onHoverStart={() => setIsPaused(true)}
             onHoverEnd={() => setIsPaused(false)}
           >
-            {/* Triple technologies for seamless loop */}
             {[...technologies, ...technologies, ...technologies].map((tech, index) => {
               const Icon = tech.icon;
               return (
@@ -110,18 +107,18 @@ const Skills = () => {
                     rotateY: 5,
                     transition: { duration: 0.2 }
                   }}
+                  whileTap={{ scale: 0.95 }}
+                  onMouseEnter={playHoverSound}
+                  onClick={playClickSound}
                   className="relative group cursor-pointer aspect-square"
                   style={{
                     transformStyle: "preserve-3d",
                     perspective: "1000px"
                   }}
                 >
-                  {/* Glow effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/20 rounded-xl sm:rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Main card */}
-                  <div className="relative glass-card rounded-2xl p-4 border-2 border-border/50 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 bg-gradient-to-br from-card/80 via-card to-card/80 backdrop-blur-xl h-full w-full">
-                    {/* Background pattern */}
+                  <div className="relative glass-card rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-4 border border-border/50 sm:border-2 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/30 bg-gradient-to-br from-card/80 via-card to-card/80 backdrop-blur-xl h-full w-full">
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300">
                       <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent" 
                            style={{
@@ -131,26 +128,22 @@ const Skills = () => {
                       />
                     </div>
                     
-                    <div className="relative flex flex-col items-center justify-center gap-3 h-full">
-                      {/* Icon container with gradient background */}
-                      <div className="relative p-3 rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 group-hover:from-primary/20 group-hover:via-accent/10 group-hover:to-primary/20 transition-all duration-300">
+                    <div className="relative flex flex-col items-center justify-center gap-1.5 sm:gap-2.5 md:gap-3 h-full">
+                      <div className="relative p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 group-hover:from-primary/20 group-hover:via-accent/10 group-hover:to-primary/20 transition-all duration-300">
                         <Icon 
-                          size={32} 
-                          className="text-primary group-hover:scale-110 transition-transform duration-300" 
+                          className="w-5 h-5 sm:w-7 sm:h-7 md:w-8 md:h-8 text-primary group-hover:scale-110 transition-transform duration-300" 
                           style={{ 
-                            filter: 'drop-shadow(0 0 8px rgba(var(--primary), 0.3))'
+                            filter: 'drop-shadow(0 0 8px hsl(var(--primary) / 0.35))'
                           }}
                         />
                       </div>
                       
-                      {/* Technology name */}
-                      <span className="text-xs font-semibold text-foreground text-center leading-tight group-hover:text-primary transition-colors duration-300 px-1">
+                      <span className="text-[9px] sm:text-[11px] md:text-xs font-semibold text-foreground text-center leading-tight group-hover:text-primary transition-colors duration-300 px-0.5 sm:px-1 line-clamp-2">
                         {tech.name}
                       </span>
                       
-                      {/* Animated underline on hover */}
                       <motion.div 
-                        className="h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"
+                        className="hidden sm:block h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"
                         initial={{ width: 0 }}
                         whileHover={{ width: "80%" }}
                         transition={{ duration: 0.3 }}
@@ -163,12 +156,11 @@ const Skills = () => {
           </motion.div>
         </div>
         
-        {/* Hover instruction */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center text-sm text-muted-foreground mt-6 mono-text"
+          className="text-center text-xs sm:text-sm text-muted-foreground mt-4 sm:mt-6 mono-text"
         >
           All technologies
         </motion.p>

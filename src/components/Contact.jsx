@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+import useSoundEffects from "@/hooks/useSoundEffects";
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { playClickSound, playCtaSound, playHoverSound } = useSoundEffects();
   const emailAddress = "samisharma000@gmail.com";
   const gmailComposeHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}`;
   const contactInfo = [
@@ -37,9 +39,6 @@ const Contact = () => {
     className="glass-card rounded-2xl p-8 md:p-12"
   >
           <div className="grid md:grid-cols-2 gap-12">
-            {
-    /* Contact Info */
-  }
             <div className="space-y-8">
               <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
               {contactInfo.map((item, index) => <motion.a
@@ -50,6 +49,8 @@ const Contact = () => {
     initial={{ opacity: 0, x: -20 }}
     animate={isInView ? { opacity: 1, x: 0 } : {}}
     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+    onMouseEnter={playHoverSound}
+    onClick={playClickSound}
     className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
   >
                   <div className="p-3 rounded-lg bg-secondary group-hover:bg-primary/10 transition-colors">
@@ -68,6 +69,8 @@ const Contact = () => {
     href="https://github.com/saumya-bhardwaj04"
     target="_blank"
     rel="noopener noreferrer"
+    onMouseEnter={playHoverSound}
+    onClick={playClickSound}
     className="p-3 rounded-lg bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
   >
                     <Github className="w-5 h-5" />
@@ -76,6 +79,8 @@ const Contact = () => {
     href="https://linkedin.com/in/saumya-bhardwaj04"
     target="_blank"
     rel="noopener noreferrer"
+    onMouseEnter={playHoverSound}
+    onClick={playClickSound}
     className="p-3 rounded-lg bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
   >
                     <Linkedin className="w-5 h-5" />
@@ -84,9 +89,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {
-    /* CTA */
-  }
             <div className="flex flex-col justify-center items-center text-center">
               <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
@@ -105,6 +107,8 @@ const Contact = () => {
     href={gmailComposeHref}
     target="_blank"
     rel="noopener noreferrer"
+    onMouseEnter={playHoverSound}
+    onClick={playCtaSound}
     className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all duration-300 glow-effect"
   >
                   <Mail className="w-5 h-5" />

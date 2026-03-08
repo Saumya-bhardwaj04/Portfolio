@@ -59,7 +59,6 @@ const Experience = () => {
     }
   ];
   return <section id="experience" className="section-padding relative overflow-hidden" ref={ref}>
-      {/* Animated background elements */}
       <motion.div
         className="absolute top-1/4 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl"
         animate={{
@@ -85,7 +84,6 @@ const Experience = () => {
         }}
       />
       
-      {/* Floating icons */}
       <motion.div
         className="absolute top-20 left-20"
         animate={{
@@ -120,7 +118,6 @@ const Experience = () => {
           </h2>
         </motion.div>
 
-        {/* Work Experience */}
         <motion.div
           initial={{ opacity: 0, x: -100, rotateY: -15 }}
           animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
@@ -136,7 +133,6 @@ const Experience = () => {
             perspective: "1000px"
           }}
         >
-          {/* Animated gradient background */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100"
             animate={{
@@ -152,7 +148,6 @@ const Experience = () => {
             }}
           />
           
-          {/* Shine effect */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
             initial={{ x: "-100%" }}
@@ -160,7 +155,6 @@ const Experience = () => {
             transition={{ duration: 0.8 }}
           />
           
-          {/* Floating particles */}
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
@@ -256,7 +250,6 @@ const Experience = () => {
           </div>
         </motion.div>
 
-        {/* Achievements Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {achievements.map((section, sectionIndex) => {
             const isEvenIndex = sectionIndex % 2 === 0;
@@ -293,7 +286,6 @@ const Experience = () => {
                 perspective: "1000px"
               }}
             >
-              {/* Animated gradient background */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100"
                 animate={{
@@ -309,10 +301,8 @@ const Experience = () => {
                 }}
               />
               
-              {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              {/* Shine effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"
                 initial={{ x: "-100%" }}
@@ -373,7 +363,6 @@ const Experience = () => {
                 </motion.li>)}
               </ul>
               
-              {/* Corner decoration */}
               <motion.div 
                 className="absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-br from-accent/10 to-transparent blur-2xl group-hover:opacity-80 transition-opacity"
                 animate={{

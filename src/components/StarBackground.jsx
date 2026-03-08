@@ -36,10 +36,6 @@ const StarBackground = () => {
       ease: "easeInOut"
     }}
   />)}
-      
-      {
-    /* Shooting stars */
-  }
       {[...Array(3)].map((_, i) => <motion.div
     key={`shooting-${i}`}
     className="absolute w-1 h-1 bg-primary rounded-full"

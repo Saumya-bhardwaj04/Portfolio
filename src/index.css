@@ -65,6 +65,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -184,5 +185,60 @@
 
   .gradient-border:hover::before {
     opacity: 1;
+  }
+
+  .certificate-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.35), transparent 45%, hsl(var(--accent) / 0.35));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .certificate-card:hover::after {
+    opacity: 1;
+  }
+
+  .certificate-card-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 35%, hsl(var(--foreground) / 0.08) 50%, transparent 65%);
+    transform: translateX(-130%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+  }
+
+  .certificate-card:hover .certificate-card-shine {
+    transform: translateX(130%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
