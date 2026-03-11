@@ -149,13 +149,31 @@ const useSoundEffects = () => {
     playTone(ctx, 880, now + 0.015, 0.025, "square", 0.016);
   }, [canPlay, getAudioContext, playTone]);
 
+  const playBackToTopSound = useCallback(() => {
+    if (!canPlay("backToTop", 140)) {
+      return;
+    }
+    const ctx = getAudioContext();
+    if (!ctx) {
+      return;
+    }
+
+    const now = ctx.currentTime;
+    // Unique "lift" cue: quick rise, airy ping, then short confirmation tail.
+    playTone(ctx, 392, now, 0.04, "triangle", 0.028);
+    playTone(ctx, 784, now + 0.03, 0.045, "triangle", 0.03);
+    playTone(ctx, 1174, now + 0.065, 0.05, "sine", 0.024);
+    playTone(ctx, 1568, now + 0.11, 0.06, "square", 0.02);
+  }, [canPlay, getAudioContext, playTone]);
+
   return {
     playClickSound,
     playHoverSound,
     playDownloadSound,
     playCtaSound,
     playScrollSound,
-    playProfileHoverSound
+    playProfileHoverSound,
+    playBackToTopSound
   };
 };
 

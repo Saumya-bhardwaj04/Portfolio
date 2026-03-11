@@ -9,6 +9,7 @@ import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import StarBackground from "@/components/StarBackground";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 const Index = () => {
   return <div className="min-h-screen bg-background relative">
       <StarBackground />
@@ -24,6 +25,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTopButton />
     </div>;
 };
 var Index_default = Index;
