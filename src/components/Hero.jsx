@@ -158,8 +158,8 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-muted-foreground text-sm md:text-base mb-8 leading-relaxed text-center max-w-md"
           >
-            Passionate about building scalable web applications with clean, efficient code.
-            Specialized in MERN Stack with a focus on creating impactful digital experiences.
+            Full-stack builder with a product-first mindset, turning ideas into fast, reliable web experiences.
+            I work across React, Node.js, and modern APIs to ship polished features that users actually enjoy.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

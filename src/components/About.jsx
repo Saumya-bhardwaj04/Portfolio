@@ -129,14 +129,14 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 1 }}
                 />
               </motion.span> at
-              Maharshi Dayanand University (MDU), passionate about building scalable, user-focused web applications.
+              Maharshi Dayanand University (MDU), with a strong focus on developing scalable, user-focused web applications.
             </motion.p>
 
             <motion.p 
               variants={itemVariants}
               className="text-muted-foreground text-lg leading-relaxed"
             >
-              With hands-on experience in{" "}
+              Proficient in MERN Stack with hands-on experience in{" "}
               <motion.span 
                 className="text-primary font-medium"
                 whileHover={{ 
@@ -147,16 +147,15 @@ const About = () => {
               >
                 full-stack development
               </motion.span>,
-              I design responsive frontends and craft secure backends that are clean, efficient, and maintainable.
-              I love shipping polished products with thoughtful UX and solid engineering.
+              REST APIs, and responsive UI design. I build solutions that are clean, efficient, and maintainable.
             </motion.p>
 
             <motion.p 
               variants={itemVariants}
               className="text-muted-foreground text-lg leading-relaxed"
             >
-              I'm actively seeking full-stack roles where I can contribute to impactful projects
-              and keep growing as a developer.
+              I'm seeking a Full Stack Developer role to contribute to impactful projects while
+              continuing to grow through new programming languages and frameworks.
             </motion.p>
 
             <motion.div 
@@ -244,7 +243,7 @@ const About = () => {
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.6, duration: 0.5 }}
                   >
-                    B.Tech in CSE (AI & ML)
+                    Computer Science and Engineering
                   </motion.h3>
                   <motion.p 
                     className="text-muted-foreground text-sm"
@@ -252,7 +251,7 @@ const About = () => {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.7, duration: 0.5 }}
                   >
-                    Maharshi Dayanand University (MDU)
+                    Bachelor of Technology (B.Tech) - Maharshi Dayanand University (MDU)
                   </motion.p>
                   <motion.p 
                     className="mono-text text-xs text-primary mt-2"
@@ -323,7 +322,7 @@ const About = () => {
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
-                    Diploma in Computer Engineering
+                    Computer Science
                   </motion.h3>
                   <motion.p 
                     className="text-muted-foreground text-sm"
@@ -331,7 +330,7 @@ const About = () => {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ delay: 0.9, duration: 0.5 }}
                   >
-                    Guru Nanak Dev Institute of Technology (DSEU)
+                    Diploma in Computer Engineering - Guru Nanak Dev Rohini Campus (DSEU)
                   </motion.p>
                   <motion.p 
                     className="mono-text text-xs text-accent mt-2"

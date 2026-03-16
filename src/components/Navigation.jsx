@@ -13,8 +13,8 @@ const navLinks = [
 ];
 const Navigation = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeVersion = "20260308";
-  const resumeUrl = `${baseUrl}Saumya%20bhardwaj%20CV.pdf?v=${resumeVersion}`;
+  const resumeVersion = "20260316";
+  const resumeUrl = `${baseUrl}Saumya%20bhardwaj%20resume.pdf?v=${resumeVersion}`;
   const { playClickSound, playDownloadSound } = useSoundEffects();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

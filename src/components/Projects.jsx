@@ -5,7 +5,7 @@ import { ExternalLink, Github, Layers, Star, Eye, Sparkles, Code2, Users, Trendi
 import useSoundEffects from "@/hooks/useSoundEffects";
 const projects = [
   {
-    title: "Meloque – AI-Powered Blogging Platform",
+    title: "Meloque – AI Powered Content Publishing Platform",
     description: "Developed a modern full-stack blogging platform with AI-assisted writing, secure authentication, real-time interactions, and push notifications using a scalable MERN-based architecture.",
     tech: ["React.js", "Redux Toolkit", "Node.js", "Express.js", "MongoDB", "JWT", "Firebase Cloud Messaging", "Cloudinary", "Tailwind CSS"
     ],
@@ -21,7 +21,7 @@ const projects = [
     liveUrl: "https://www.meloque.me/"
   },
   {
-    title: "Pocket Cart – E-commerce Website",
+    title: "Pocket Cart – Real-Time Shopping Platform",
     description: "Built a modern e-commerce web app with a responsive UI, dynamic product listings, cart management using Redux Toolkit, and real-time user feedback via toast notifications.",
     tech: [
       "React.js",

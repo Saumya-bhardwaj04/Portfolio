@@ -6,8 +6,8 @@ import { toast } from "@/hooks/use-toast";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const Resume = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeVersion = "20260308";
-  const resumeFile = `${baseUrl}Saumya%20bhardwaj%20CV.pdf?v=${resumeVersion}`;
+  const resumeVersion = "20260316";
+  const resumeFile = `${baseUrl}Saumya%20bhardwaj%20resume.pdf?v=${resumeVersion}`;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { playClickSound, playDownloadSound } = useSoundEffects();
@@ -66,7 +66,7 @@ const Resume = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <motion.a
     href={resumeFile}
-    download="Saumya_Bhardwaj_CV.pdf"
+    download="Saumya_Bhardwaj_Resume.pdf"
     onClick={() => {
       playDownloadSound();
       toast({
