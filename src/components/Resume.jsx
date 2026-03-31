@@ -6,7 +6,7 @@ import { toast } from "@/hooks/use-toast";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const Resume = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeVersion = "20260316";
+  const resumeVersion = "20260331";
   const resumeFile = `${baseUrl}Saumya%20bhardwaj%20resume.pdf?v=${resumeVersion}`;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -107,8 +107,8 @@ const Resume = () => {
   >
             {[
     { value: "4+", label: "Months Experience" },
-    { value: "5+", label: "Projects Completed" },
-    { value: "15+", label: "Technologies" }
+    { value: "8+", label: "Projects Completed" },
+    { value: "25+", label: "Technologies" }
   ].map((stat, index) => <motion.div
     key={stat.label}
     initial={{ opacity: 0, y: 20 }}
@@ -128,3 +128,4 @@ var Resume_default = Resume;
 export {
   Resume_default as default
 };
+

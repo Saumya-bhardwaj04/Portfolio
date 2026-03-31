@@ -5,16 +5,32 @@ import { ExternalLink, Github, Layers, Star, Eye, Sparkles, Code2, Users, Trendi
 import useSoundEffects from "@/hooks/useSoundEffects";
 const projects = [
   {
-    title: "Meloque – AI Powered Content Publishing Platform",
-    description: "Developed a modern full-stack blogging platform with AI-assisted writing, secure authentication, real-time interactions, and push notifications using a scalable MERN-based architecture.",
-    tech: ["React.js", "Redux Toolkit", "Node.js", "Express.js", "MongoDB", "JWT", "Firebase Cloud Messaging", "Cloudinary", "Tailwind CSS"
+    title: "DPI Control Plane - Real-Time Network Packet Inspection Platform",
+    description: "Built a full-stack Deep Packet Inspection dashboard with a React and Node.js control plane plus a Python packet engine for real-time traffic capture, classification, and rule-based enforcement.",
+    tech: ["React.js", "Node.js", "Python", "Scapy", "Libpcap", "Supabase", "PostgreSQL", "Azure VM", "Nginx", "PM2"
     ],
     features: [
-      "User authentication with JWT",
-      "AI-assisted blog writing and editing",
-      "Create, edit, delete, and publish blogs",
-      "Push notifications using Firebase Cloud Messaging",
-      "Optimized search with debouncing",
+      "Captures and classifies live network traffic in real time.",
+      "Uses Scapy and libpcap for deep packet inspection workflows.",
+      "Supports admin blocking rules with JWT-based access control.",
+      "Provides read-only analysis views with PDF export support.",
+      "Deployed on Azure VM with Nginx, PM2, and SSL."
+    ],
+    stars: 14,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/Deep-Packet-Inspection",
+    liveUrl: "https://app.deepinspect.tech/"
+  },
+  {
+    title: "Meloque - AI Powered Content Publishing Platform",
+    description: "Developed a production-grade MERN blogging platform with GenAI-powered content assistance, secure authentication, real-time engagement, and media handling for a smooth publishing workflow.",
+    tech: ["React.js", "Redux Toolkit", "Node.js", "Express.js", "MongoDB", "JWT", "Firebase Cloud Messaging", "Cloudinary", "Tailwind CSS", "Editor.js"
+    ],
+    features: [
+      "Generates descriptions, tags, and content with AI Blog Assist.",
+      "Supports create, edit, publish, and manage blog workflows.",
+      "Includes real-time likes, comments, follows, and notifications.",
+      "Uses Editor.js with debounced search for smoother authoring.",
+      "Handles auth, media uploads, and push updates reliably."
     ],
     stars: 12,
     githubUrl: "https://github.com/Saumya-bhardwaj04/Modern-blog-app",

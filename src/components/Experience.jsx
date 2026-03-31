@@ -197,7 +197,7 @@ const Experience = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
-                    PHP Developer(Intern)
+                    Full Stack Web Developer
                   </motion.h3>
                   <motion.p 
                     className="text-primary font-medium"
@@ -206,7 +206,7 @@ const Experience = () => {
                     transition={{ duration: 0.5, delay: 0.5 }}
                     whileHover={{ scale: 1.05 }}
                   >
-                    APK WEBTECH
+                    APK WEBTECH | Internship | On-Site
                   </motion.p>
                 </div>
                 <motion.p 
@@ -215,15 +215,15 @@ const Experience = () => {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  Jan 2023 – April 2023
+                  Jan 2023 - April 2023
                 </motion.p>
               </div>
               
               <ul className="space-y-4">
                 {[
-                  "Built and maintained responsive web applications using PHP, MySQL, HTML, CSS, and JavaScript, ensuring seamless user experience across devices.",
-                  "Integrated databases and managed sessions with clean, secure, and scalable backend code to enhance data handling efficiency.",
-                  "Optimized website performance and implemented best practices in web development, improving load speed and user engagement."
+                  "Developed and maintained responsive web applications using PHP, MySQL, HTML, CSS, and JavaScript, delivering seamless user experiences across devices and increasing user engagement by 55%.",
+                  "Integrated databases and managed sessions with clean, secure, and scalable backend code, improving data handling efficiency by 25%.",
+                  "Enhanced website performance by implementing code minification and image optimization, resulting in a 35% faster load time and increased user engagement."
                 ].map((item, index) => <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -385,3 +385,4 @@ var Experience_default = Experience;
 export {
   Experience_default as default
 };
+
