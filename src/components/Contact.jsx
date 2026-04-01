@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const Contact = () => {
   const ref = useRef(null);
@@ -84,6 +85,16 @@ const Contact = () => {
     className="p-3 rounded-lg bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
   >
                     <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+    href="https://leetcode.com/u/Saumya_0000/"
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={playHoverSound}
+    onClick={playClickSound}
+    className="p-3 rounded-lg bg-secondary hover:bg-primary/10 hover:text-primary transition-all"
+  >
+                    <SiLeetcode className="w-5 h-5" />
                   </a>
                 </div>
               </div>

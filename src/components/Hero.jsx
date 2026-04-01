@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 import { useTypingEffect } from "@/hooks/useTypingEffect";
 import { toast } from "@/hooks/use-toast";
 import useSoundEffects from "@/hooks/useSoundEffects";
@@ -170,6 +171,7 @@ const Hero = () => {
             {[
               { icon: Github, href: "https://github.com/saumya-bhardwaj04", label: "GitHub", isExternal: true },
               { icon: Linkedin, href: "https://linkedin.com/in/saumya-bhardwaj04", label: "LinkedIn", isExternal: true },
+              { icon: SiLeetcode, href: "https://leetcode.com/u/Saumya_0000/", label: "LeetCode", isExternal: true },
               { icon: Mail, href: gmailComposeHref, label: "Email", isExternal: true }
             ].map((social, index) => <motion.a
               key={social.label}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Copy } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 import { toast } from "@/hooks/use-toast";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const Footer = () => {
@@ -53,6 +54,16 @@ const Footer = () => {
     className="text-muted-foreground hover:text-primary transition-colors"
   >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+    href="https://leetcode.com/u/Saumya_0000/"
+    target="_blank"
+    rel="noopener noreferrer"
+              onMouseEnter={playHoverSound}
+              onClick={playClickSound}
+    className="text-muted-foreground hover:text-primary transition-colors"
+  >
+              <SiLeetcode className="w-5 h-5" />
             </a>
             <a
     href={gmailComposeHref}

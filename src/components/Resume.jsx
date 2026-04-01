@@ -6,7 +6,7 @@ import { toast } from "@/hooks/use-toast";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const Resume = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeVersion = "20260331";
+  const resumeVersion = "20260401";
   const resumeFile = `${baseUrl}Saumya%20bhardwaj%20resume.pdf?v=${resumeVersion}`;
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
