@@ -103,7 +103,7 @@ const Resume = () => {
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.6, delay: 0.5 }}
-            className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-8 border-t border-border"
+            className="relative z-10 grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-10 pt-4 sm:pt-8 border-t border-border"
   >
             {[
     { value: "4+", label: "Months Experience" },
@@ -114,10 +114,10 @@ const Resume = () => {
     initial={{ opacity: 0, y: 20 }}
     animate={isInView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-    className="text-center py-2 sm:py-0"
+    className="text-center py-1 sm:py-0 px-1"
   >
-                <p className="text-2xl md:text-3xl font-bold text-gradient">{stat.value}</p>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</p>
+                <p className="text-lg sm:text-2xl md:text-3xl font-bold text-gradient">{stat.value}</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mt-1 leading-tight">{stat.label}</p>
               </motion.div>)}
           </motion.div>
         </motion.div>
