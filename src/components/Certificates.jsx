@@ -36,6 +36,16 @@ const useCounter = (end, duration = 2000, shouldStart = false) => {
 };
 const certificates = [
   {
+    id: 8,
+    title: "Samsung Innovation Campus",
+    issuer: "Samsung Innovation Campus",
+    date: "2026",
+    description: "Completed Samsung Innovation Campus certification, strengthening practical technology and innovation skills.",
+    downloadUrl: `${baseUrl}certificates/Samsung%20innovation%20campus%20certificate.pdf`,
+    viewUrl: `${baseUrl}certificates/Samsung%20innovation%20campus%20certificate.pdf`,
+    color: "primary"
+  },
+  {
     id: 6,
     title: "Introduction to Generative AI Studio",
     issuer: "Google Cloud (SkillUp by Simplilearn)",
