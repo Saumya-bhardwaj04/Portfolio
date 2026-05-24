@@ -259,7 +259,7 @@ const About = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.8, duration: 0.5 }}
                   >
-                    Sep 2023 – Present
+                    Sep 2023 – Jun 2026
                   </motion.p>
                 </div>
               </div>
