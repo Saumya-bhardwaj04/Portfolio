@@ -6,7 +6,6 @@ Modern one-page portfolio with animated sections (Hero, About, Skills, Projects,
 
 - React + Vite
 - Tailwind CSS
-- Framer Motion
 - React Router
 
 ## Run Locally
