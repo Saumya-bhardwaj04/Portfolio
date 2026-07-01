@@ -13,7 +13,7 @@ const navLinks = [
 ];
 const Navigation = () => {
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const resumeVersion = "20260508";
+  const resumeVersion = "20260701";
   const resumeUrl = `${baseUrl}Saumya%20bhardwaj%20resume.pdf?v=${resumeVersion}`;
   const { playClickSound, playDownloadSound } = useSoundEffects();
   const [isScrolled, setIsScrolled] = useState(false);

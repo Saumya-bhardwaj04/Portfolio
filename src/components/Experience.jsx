@@ -215,7 +215,7 @@ const Experience = () => {
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                  Jan 2023 - April 2023
+                  Sept 2022 - April 2023
                 </motion.p>
               </div>
               

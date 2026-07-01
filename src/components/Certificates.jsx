@@ -36,6 +36,56 @@ const useCounter = (end, duration = 2000, shouldStart = false) => {
 };
 const certificates = [
   {
+    id: 13,
+    title: "Practical GitHub Copilot",
+    issuer: "LinkedIn Learning",
+    date: "2026",
+    description: "Completed Practical GitHub Copilot course, enhancing productivity using AI-assisted coding and advanced prompt engineering.",
+    downloadUrl: `${baseUrl}certificates/CertificateOfCompletion_Practical%20GitHub%20Copilot.pdf`,
+    viewUrl: `${baseUrl}certificates/CertificateOfCompletion_Practical%20GitHub%20Copilot.pdf`,
+    color: "primary"
+  },
+  {
+    id: 12,
+    title: "Microsoft Azure Essentials",
+    issuer: "Microsoft Press",
+    date: "2026",
+    description: "Certified in Microsoft Azure Essentials, gaining core skills in Azure cloud architecture, services, and security implementation.",
+    downloadUrl: `${baseUrl}certificates/CertificateOfCompletion_Microsoft%20Azure%20Essentials%20by%20Microsoft%20Press.pdf`,
+    viewUrl: `${baseUrl}certificates/CertificateOfCompletion_Microsoft%20Azure%20Essentials%20by%20Microsoft%20Press.pdf`,
+    color: "accent"
+  },
+  {
+    id: 11,
+    title: "Kubernetes Microservices",
+    issuer: "LinkedIn Learning",
+    date: "2026",
+    description: "Acquired specialized training in Kubernetes Microservices, covering orchestration, scaling, and managing cloud-native applications.",
+    downloadUrl: `${baseUrl}certificates/CertificateOfCompletion_Kubernetes%20Microservices.pdf`,
+    viewUrl: `${baseUrl}certificates/CertificateOfCompletion_Kubernetes%20Microservices.pdf`,
+    color: "primary"
+  },
+  {
+    id: 10,
+    title: "Docker Foundations",
+    issuer: "Docker",
+    date: "2026",
+    description: "Earned Docker Foundations Professional Certificate, focusing on containerization, image creation, and multi-container deployments.",
+    downloadUrl: `${baseUrl}certificates/CertificateOfCompletion_Docker%20Foundations%20Professional%20Certificate.pdf`,
+    viewUrl: `${baseUrl}certificates/CertificateOfCompletion_Docker%20Foundations%20Professional%20Certificate.pdf`,
+    color: "accent"
+  },
+  {
+    id: 9,
+    title: "Career Essentials in GitHub",
+    issuer: "GitHub & Microsoft",
+    date: "2026",
+    description: "Completed Career Essentials in GitHub Professional Certificate, mastering version control, collaborative workflows, and GitHub features.",
+    downloadUrl: `${baseUrl}certificates/CertificateOfCompletion_Career%20Essentials%20in%20GitHub%20Professional%20Certificate.pdf`,
+    viewUrl: `${baseUrl}certificates/CertificateOfCompletion_Career%20Essentials%20in%20GitHub%20Professional%20Certificate.pdf`,
+    color: "primary"
+  },
+  {
     id: 8,
     title: "Samsung Innovation Campus",
     issuer: "Samsung Innovation Campus",
@@ -43,7 +93,7 @@ const certificates = [
     description: "Completed Samsung Innovation Campus certification, strengthening practical technology and innovation skills.",
     downloadUrl: `${baseUrl}certificates/Samsung%20innovation%20campus%20certificate.pdf`,
     viewUrl: `${baseUrl}certificates/Samsung%20innovation%20campus%20certificate.pdf`,
-    color: "primary"
+    color: "accent"
   },
   {
     id: 6,
@@ -53,7 +103,7 @@ const certificates = [
     description: "Completed an online course covering the basics of Generative AI Studio and practical workflow concepts.",
     downloadUrl: `${baseUrl}certificates/Genai%20Studio%20Certificate.pdf`,
     viewUrl: `${baseUrl}certificates/Genai%20Studio%20Certificate.pdf`,
-    color: "accent"
+    color: "primary"
   },
   {
     id: 7,
@@ -63,7 +113,7 @@ const certificates = [
     description: "Completed an online course covering Generative AI fundamentals and beginner-friendly concepts.",
     downloadUrl: `${baseUrl}certificates/Generative%20AI%20for%20Beginners.pdf`,
     viewUrl: `${baseUrl}certificates/Generative%20AI%20for%20Beginners.pdf`,
-    color: "primary"
+    color: "accent"
   },
   {
     id: 1,
@@ -85,7 +135,7 @@ const certificates = [
     viewUrl: `${baseUrl}certificates/Machine_learning-1_compeletion_certificate.pdf`,
     color: "accent"
   },
-    {
+  {
     id: 3,
     title: "Web Design & Development",
     issuer: "Skill India Digital Hub(NSDC)",
@@ -105,7 +155,7 @@ const certificates = [
     viewUrl: `${baseUrl}certificates/Deloitte_completion_certificate.pdf`,
     color: "accent"
   },
-    {
+  {
     id: 5,
     title: "Web Development",
     issuer: "Coding Block",
@@ -115,8 +165,7 @@ const certificates = [
     viewUrl: `${baseUrl}certificates/Web Dev training certificate.pdf`,
     color: "primary"
   },
-];
-const Certificates = () => {
+];const Certificates = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [hoveredCard, setHoveredCard] = useState(null);
