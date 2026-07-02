@@ -2,8 +2,40 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { ExternalLink, Github, Layers, Star, Eye, Sparkles, Code2, Users, TrendingUp, Clock } from "lucide-react";
+import { VscCode } from "react-icons/vsc";
 import useSoundEffects from "@/hooks/useSoundEffects";
 const projects = [
+  {
+    title: "CodeGuard AI - Automated Code Quality Platform",
+    description: "Built an AI-powered code analysis tool using Ollama to detect security bugs, logic issues, and vulnerabilities in Java, Python, and JavaScript, suggesting instant fixes.",
+    tech: ["React.js", "Node.js", "Express.js", "Ollama", "Docker", "GitHub Actions", "Tailwind CSS"],
+    features: [
+      "Detects logic bugs, vulnerabilities, and code quality issues.",
+      "Calculates instant security risk scores and code optimizations.",
+      "Integrates Ollama for complete privacy using local models.",
+      "Provides production-ready Docker Compose containerization setups.",
+      "Implements GitHub Actions pipelines for automated CI/CD checks."
+    ],
+    stars: 15,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/CodeGuard-AI",
+    liveUrl: "https://codeguard-ai-0bg0.onrender.com",
+    vscodeUrl: "https://marketplace.visualstudio.com/items?itemName=codeguard-ai-official.codeguard-ai-extension"
+  },
+  {
+    title: "VeloRAG - Local Vector DB & RAG Visualizer",
+    description: "Developed a pure Python local Vector Database and RAG pipeline visualizer using Streamlit to demonstrate semantic search and index structures under the hood.",
+    tech: ["Python", "Streamlit", "Ollama", "HNSW Index", "Groq API", "PCA Plotting"],
+    features: [
+      "Compares HNSW, KD-Tree, and Brute Force search speeds live.",
+      "Supports Cosine, Euclidean, and Manhattan distance metrics.",
+      "Plots semantic text clusters in 2D space using PCA projection.",
+      "Automates real-time document chunking and text embedding flows.",
+      "Runs local RAG search and answers with automatic cloud fallback."
+    ],
+    stars: 13,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/VeloRAG",
+    liveUrl: "https://velorag.streamlit.app/"
+  },
   {
     title: "DPI Control Plane - Real-Time Network Packet Inspection Platform",
     description: "Built a full-stack Deep Packet Inspection dashboard with a React and Node.js control plane plus a Python packet engine for real-time traffic capture, classification, and rule-based enforcement.",
@@ -476,7 +508,7 @@ const Projects = () => {
                 {feature}
               </motion.li>)}
             </ul>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
@@ -527,6 +559,33 @@ const Projects = () => {
                   </span>
                 )}
               </motion.a>
+              {project.vscodeUrl && (
+                <motion.a
+                  href={project.vscodeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleLinkClick(project.title, 'vscode')}
+                  onMouseEnter={playHoverSound}
+                  onClickCapture={playClickSound}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium relative group/btn"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{
+                    y: hoveredProject === project.title ? 0 : 20,
+                    opacity: hoveredProject === project.title ? 1 : 0
+                  }}
+                  transition={{ duration: 0.3, delay: 0.4 }}
+                >
+                  <VscCode className="w-4 h-4" />
+                  VS Code
+                  {clickedLinks[`${project.title}-vscode`] && (
+                    <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">
+                      {clickedLinks[`${project.title}-vscode`]}
+                    </span>
+                  )}
+                </motion.a>
+              )}
             </div>
           </motion.div>
 
