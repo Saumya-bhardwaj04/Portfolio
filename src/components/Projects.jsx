@@ -37,6 +37,21 @@ const projects = [
     liveUrl: "https://velorag.streamlit.app/"
   },
   {
+    title: "FactCheck Agent - Automated PDF Fact-Checking Platform",
+    description: "Developed an automated fact-checking application that extracts key claims from PDFs, queries the web via DuckDuckGo, and verifies accuracy using LLMs with failover configurations.",
+    tech: ["Python", "Streamlit", "Groq SDK", "Google GenAI", "pdfplumber", "DuckDuckGo Search"],
+    features: [
+      "Extracts key verifiable claims automatically using pdfplumber.",
+      "Searches the web in real-time to find evidence for claim verification.",
+      "Uses Groq (Llama-3.1) and Gemini as an optional fallback LLM.",
+      "Returns structured verdicts: Verified, Inaccurate, False, and Unverifiable.",
+      "Integrates a responsive, user-friendly Streamlit web interface."
+    ],
+    stars: 11,
+    githubUrl: "https://github.com/Saumya-bhardwaj04/factcheck-agent",
+    liveUrl: "https://factcheck-agent-zcvhdwza9lxasrpopbmpvu.streamlit.app/"
+  },
+  {
     title: "DPI Control Plane - Real-Time Network Packet Inspection Platform",
     description: "Built a full-stack Deep Packet Inspection dashboard with a React and Node.js control plane plus a Python packet engine for real-time traffic capture, classification, and rule-based enforcement.",
     tech: ["React.js", "Node.js", "Python", "Scapy", "Libpcap", "Supabase", "PostgreSQL", "Azure VM", "Nginx", "PM2"
