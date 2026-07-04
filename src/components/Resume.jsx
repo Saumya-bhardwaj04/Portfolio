@@ -106,9 +106,9 @@ const Resume = () => {
             className="relative z-10 grid grid-cols-3 gap-2 sm:gap-4 mt-6 sm:mt-10 pt-4 sm:pt-8 border-t border-border"
   >
             {[
-    { value: "4+", label: "Months Experience" },
-    { value: "8+", label: "Projects Completed" },
-    { value: "25+", label: "Technologies" }
+    { value: "5+", label: "Months Experience" },
+    { value: "10+", label: "Projects Completed" },
+    { value: "30+", label: "Technologies" }
   ].map((stat, index) => <motion.div
     key={stat.label}
     initial={{ opacity: 0, y: 20 }}
