@@ -41,20 +41,20 @@ const Experience = () => {
       icon: Award,
       title: "Certifications",
       items: [
-        "Artificial Intelligence \u2013 CodeSoft",
-        "Web Development \u2013 Coding Blocks",
-        "Machine Learning I \u2013 Columbia+",
-        "Technology Job Simulation \u2013 Forage",
-        "Web Design & Development \u2013 SkillIndia"
+        "Career Essentials in GitHub – GitHub",
+        "Docker Foundations – Docker",
+        "Microsoft Azure Essentials – Microsoft",
+        "Kubernetes: Microservices – LinkedIn",
+        "Web Design & Development – SkillIndia"
       ]
     },
     {
       icon: TrendingUp,
       title: "Key Achievements",
       items: [
-        "Improved website performance & user engagement",
-        "Reduced code duplication by 25%",
-        "Optimized backend queries for better performance"
+        "Completed TCS iON Career Edge – Young Professional program",
+        "Reduced code duplication by 25% through strategic refactoring",
+        "Optimized backend queries and APIs for improved retrieval speed"
       ]
     }
   ];
@@ -221,9 +221,9 @@ const Experience = () => {
               
               <ul className="space-y-4">
                 {[
-                  "Developed and maintained responsive web applications using PHP, MySQL, HTML, CSS, and JavaScript, delivering seamless user experiences across devices and increasing user engagement by 55%.",
-                  "Integrated databases and managed sessions with clean, secure, and scalable backend code, improving data handling efficiency by 25%.",
-                  "Enhanced website performance by implementing code minification and image optimization, resulting in a 35% faster load time and increased user engagement."
+                  "Collaborated on responsive web applications using PHP, MySQL, and JavaScript, assisting with production feature deployment and improving overall user engagement by 55%.",
+                  "Optimized SQL queries and backend APIs with session management, improving data retrieval performance by 25% through rigorous unit testing.",
+                  "Participated in code reviews and optimized frontend performance using code minification, reducing page load times by 35% across active production deployments.",
                 ].map((item, index) => <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
