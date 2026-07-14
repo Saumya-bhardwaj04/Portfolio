@@ -477,11 +477,9 @@ const Projects = () => {
             />
           ))}
 
-          {
-            /* Hover overlay with details */
-          }
+          {/* Hover overlay with details */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/90 z-20 flex flex-col justify-end p-6 md:p-8"
+            className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/90 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8 overflow-y-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ 
               opacity: hoveredProject === project.title ? 1 : 0,
@@ -491,7 +489,7 @@ const Projects = () => {
             style={{ pointerEvents: hoveredProject === project.title ? "auto" : "none" }}
           >
             <motion.h4 
-              className="text-sm font-semibold text-muted-foreground mb-3 uppercase tracking-wider flex items-center gap-2"
+              className="text-xs md:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2 md:mb-3 uppercase tracking-wider flex items-center gap-1.5 md:gap-2 flex-shrink-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{
                 x: hoveredProject === project.title ? 0 : -20,
@@ -499,10 +497,10 @@ const Projects = () => {
               }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <Eye className="w-4 h-4" />
+              <Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />
               Key Features
             </motion.h4>
-            <ul className="space-y-2 mb-6">
+            <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 mb-2 sm:mb-4 md:mb-6">
               {project.features.map((feature, featureIndex) => <motion.li
                 key={feature}
                 initial={{ opacity: 0, x: -20 }}
@@ -511,10 +509,10 @@ const Projects = () => {
                   x: hoveredProject === project.title ? 0 : -20
                 }}
                 transition={{ duration: 0.3, delay: 0.1 + featureIndex * 0.05 }}
-                className="flex items-center gap-3 text-sm text-foreground"
+                className="flex items-start md:items-center gap-2 md:gap-3 text-xs md:text-sm text-foreground leading-snug md:leading-normal"
               >
                 <motion.span 
-                  className="w-1.5 h-1.5 rounded-full bg-primary"
+                  className="w-1.5 h-1.5 rounded-full bg-primary mt-1 md:mt-0 flex-shrink-0"
                   animate={{
                     scale: hoveredProject === project.title ? [0, 1.2, 1] : 0
                   }}
@@ -523,7 +521,7 @@ const Projects = () => {
                 {feature}
               </motion.li>)}
             </ul>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3 flex-shrink-0">
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
@@ -531,7 +529,7 @@ const Projects = () => {
                 onClick={() => handleLinkClick(project.title, 'github')}
                 onMouseEnter={playHoverSound}
                 onClickCapture={playClickSound}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:border-primary hover:text-primary transition-all duration-300 text-sm font-medium relative group/btn"
+                className="flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-border hover:border-primary hover:text-primary transition-all duration-300 text-xs md:text-sm font-medium relative group/btn"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ y: 20, opacity: 0 }}
@@ -541,7 +539,7 @@ const Projects = () => {
                 }}
                 transition={{ duration: 0.3, delay: 0.3 }}
               >
-                <Github className="w-4 h-4" />
+                <Github className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Code
                 {clickedLinks[`${project.title}-github`] && (
                   <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">
@@ -556,7 +554,7 @@ const Projects = () => {
                 onClick={() => handleLinkClick(project.title, 'live')}
                 onMouseEnter={playHoverSound}
                 onClickCapture={playCtaSound}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 text-sm font-medium relative"
+                className="flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 text-xs md:text-sm font-medium relative"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ y: 20, opacity: 0 }}
@@ -566,7 +564,7 @@ const Projects = () => {
                 }}
                 transition={{ duration: 0.3, delay: 0.35 }}
               >
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Live Demo
                 {clickedLinks[`${project.title}-live`] && (
                   <span className="absolute -top-2 -right-2 w-5 h-5 bg-accent text-accent-foreground text-xs rounded-full flex items-center justify-center">
@@ -582,7 +580,7 @@ const Projects = () => {
                   onClick={() => handleLinkClick(project.title, 'vscode')}
                   onMouseEnter={playHoverSound}
                   onClickCapture={playClickSound}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-sm font-medium relative group/btn"
+                  className="flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-lg border border-primary/40 text-primary hover:bg-primary/10 transition-all duration-300 text-xs md:text-sm font-medium relative group/btn"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ y: 20, opacity: 0 }}
@@ -592,7 +590,7 @@ const Projects = () => {
                   }}
                   transition={{ duration: 0.3, delay: 0.4 }}
                 >
-                  <VscCode className="w-4 h-4" />
+                  <VscCode className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   VS Code
                   {clickedLinks[`${project.title}-vscode`] && (
                     <span className="absolute -top-2 -right-2 w-5 h-5 bg-primary text-primary-foreground text-xs rounded-full flex items-center justify-center">
