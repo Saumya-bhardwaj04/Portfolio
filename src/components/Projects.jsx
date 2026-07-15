@@ -479,7 +479,7 @@ const Projects = () => {
 
           {/* Hover overlay with details */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/90 z-20 flex flex-col justify-end p-4 sm:p-6 md:p-8 overflow-y-auto"
+            className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-background/90 z-20 flex flex-col justify-start md:justify-end p-5 sm:p-6 md:p-8 overflow-y-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ 
               opacity: hoveredProject === project.title ? 1 : 0,
@@ -489,7 +489,7 @@ const Projects = () => {
             style={{ pointerEvents: hoveredProject === project.title ? "auto" : "none" }}
           >
             <motion.h4 
-              className="text-xs md:text-sm font-semibold text-muted-foreground mb-1.5 sm:mb-2 md:mb-3 uppercase tracking-wider flex items-center gap-1.5 md:gap-2 flex-shrink-0"
+              className="text-xs md:text-sm font-semibold text-muted-foreground mb-2 md:mb-3 uppercase tracking-wider flex items-center gap-1.5 md:gap-2 flex-shrink-0"
               initial={{ x: -20, opacity: 0 }}
               animate={{
                 x: hoveredProject === project.title ? 0 : -20,
@@ -500,7 +500,7 @@ const Projects = () => {
               <Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />
               Key Features
             </motion.h4>
-            <ul className="space-y-1 sm:space-y-1.5 md:space-y-2 mb-2 sm:mb-4 md:mb-6">
+            <ul className="space-y-1.5 md:space-y-2 mb-4 md:mb-6">
               {project.features.map((feature, featureIndex) => <motion.li
                 key={feature}
                 initial={{ opacity: 0, x: -20 }}
@@ -521,7 +521,7 @@ const Projects = () => {
                 {feature}
               </motion.li>)}
             </ul>
-            <div className="flex flex-wrap gap-2 md:gap-3 flex-shrink-0">
+            <div className="flex flex-wrap gap-2 md:gap-3 flex-shrink-0 mt-auto md:mt-0">
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
